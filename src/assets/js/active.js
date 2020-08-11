@@ -38,7 +38,7 @@
     // Welcome Carousel Active Code
     $('#welcomeSlider').carousel({
         pause: false,
-        interval: 4000
+        interval: 1000
     })
 
     // Tooltip Active Code
