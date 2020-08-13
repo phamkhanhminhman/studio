@@ -1,8 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { throwError } from 'rxjs';
 
 import { OwlOptions } from 'ngx-owl-carousel-o';
+import Typewriter from 't-writer.js';
 
 export interface PhotosApi {
   albumId?: number;
@@ -18,6 +19,8 @@ export interface PhotosApi {
   styleUrls: ['./test.component.css']
 })
 export class TestComponent implements OnInit {
+
+  @ViewChild('tw' , { static: true }) typewriterElement;
   apiData: PhotosApi;
   limit: number = 10; // <==== Edit this number to limit API results
   customOptions: OwlOptions = {
@@ -48,6 +51,18 @@ export class TestComponent implements OnInit {
   ) {}
 
   ngOnInit() {
+    const target = this.typewriterElement.nativeElement
+
+    const writer = new Typewriter(target, {
+      loop: true,
+      typeColor: 'blue'
+    })
+
+    writer
+      .type('123123')
+      .rest(500)
+      .start()
+  
     this.fetch()
   }
 

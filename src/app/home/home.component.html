@@ -1,14 +1,12 @@
-
-<div class="wrapper" >
+<div class="wrapper">
     <owl-carousel-o [options]="customOptions">
-
-        <ng-container *ngFor="let slide of baseURL">
+        <ng-container *ngFor="let slide of baseURL; let i = index">
             <ng-template class="slide" carouselSlide [id]="slide.id">
-                <img [src]="slide.baseUrl" [alt]="slide.id" [title]="slide.id">
-                <div class="centered" style="position: absolute; top: 50%; left: 50%; ">
+                <img [src]="slide.baseUrl + currentWH" [alt]="slide.filename" [title]="slide.filename">
+                <div class="centered" style="position: absolute; top: 50%; right: 50%; ">
                     <div class="slide-text">
-                        <span>01.</span>
-                        <h2> Believe you can flyyyyyyyyyyyyy</h2>
+                        <span>{{i}}.</span>
+                        <h2>Believe you can flyyyyyyyy</h2>
                     </div>
                 </div>
             </ng-template>
@@ -16,22 +14,23 @@
 
     </owl-carousel-o>
 </div>
+<!-- <h2 class="tww" #tww></h2> -->
 
-<div class="wrapper" style="width: 100%; height: 200px;">
+<div class="">
     <owl-carousel-o [options]="customOptions2">
 
         <ng-container *ngFor="let slide of baseURL">
-            <ng-template class="slide active" carouselSlide [id]="slide.id">
-                <img [src]="slide.baseUrl" [alt]="slide.id" [title]="slide.id">
-
+            <ng-template class="slide" carouselSlide [id]="slide.id">
+                <img [src]="slide.url" [alt]="slide.filename" [title]="slide.filename" style="filter: blur(1px)">
             </ng-template>
         </ng-container>
 
     </owl-carousel-o>
 </div>
-<ol class="carousel-indicators">
 
-    <li *ngFor="let item of baseURL; let i = index" (click)="activateClass(i)"
-        [ngClass]="{'active': selectedIndex === i}" data-target="#welcomeSlider" data-slide-to={{i}}
-        class="bg-img" style="background-image: url({{item.baseUrl}});"></li>
-</ol>
+<!-- <ol class="carousel-indicators">
+    
+        <li *ngFor="let item of baseURL; let i = index" (click)="activateClass(i)"
+            [ngClass]="{'active': selectedIndex === i}" data-target="#welcomeSlider" data-slide-to={{i}}
+            class="bg-img" style="background-image: url({{item.baseUrl}});"></li>
+    </ol> -->

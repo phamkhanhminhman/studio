@@ -21,6 +21,7 @@
     "@angular/router": "~10.0.5",
     "ngx-owl-carousel-o": "^4.0.0",
     "rxjs": "~6.5.5",
+    "t-writer.js": "^1.0.4",
     "tslib": "^2.0.0",
     "zone.js": "~0.10.3"
   },
