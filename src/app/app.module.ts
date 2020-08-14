@@ -14,6 +14,7 @@ import { TestComponent } from './test/test.component';
 import { CarouselModule } from 'ngx-owl-carousel-o';
 // Needs to import the BrowserAnimationsModule
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { AboutComponent } from './about/about.component';
 
 @NgModule({
   declarations: [
@@ -22,6 +23,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     HeaderComponent,
     AlbumComponent,
     TestComponent,
+    AboutComponent,
   ],
   imports: [
     BrowserModule,

@@ -1,0 +1,25 @@
+
+@media only screen and (min-width: 400px) {
+    .tw {
+        top: 10%; 
+        left: 20%; 
+        position:absolute;
+        font-weight: 600;
+        font-size: 35px;
+        /* font-family: cursive; */
+    }
+   
+        
+}
+
+@media only screen and (min-width: 800px) {
+    .tw {
+        top: 50%; 
+        left: 30%; 
+        position:absolute;
+        font-weight: 600;
+        font-size: 86px;
+        /* font-family: cursive; */
+    }
+    
+}
