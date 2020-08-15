@@ -1,0 +1,38 @@
+.video-item {
+    margin-top: 10px;
+}
+
+.dark {
+    background-color: #242424;
+}
+
+.v-title {
+    font-size: 25px; 
+    font-weight: 500; 
+    padding-bottom: 20px;
+}
+
+.v-title-dark {
+    font-size: 25px; 
+    font-weight: 500; 
+    padding-bottom: 20px;
+    color: white;
+}
+
+.v-img  {
+    position: relative;
+}
+
+.v-desc {
+    border-radius: 2px;
+    font-size: 14px;
+    font-weight: 400;
+    bottom: 0;
+    position: absolute;
+    right: 0;
+    background-color: #373933;
+    color: white;
+    line-height: 14px;
+    padding: 6px 9px 1px 9px;
+}
+

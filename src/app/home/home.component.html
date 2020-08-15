@@ -1,36 +1,85 @@
-<div class="wrapper">
-    <owl-carousel-o [options]="customOptions">
-        <ng-container *ngFor="let slide of baseURL; let i = index">
-            <ng-template class="slide" carouselSlide [id]="slide.id">
-                <img [src]="slide.baseUrl + currentWH" [alt]="slide.filename" [title]="slide.filename">
-                <div class="centered" style="position: absolute; top: 50%; right: 50%; ">
-                    <div class="slide-text">
-                        <span>{{i}}.</span>
-                        <h2>Believe you can flyyyyyyyy</h2>
+<div class="light" [ngClass]="{'dark': isSwitcher === true}">
+    <div class="wrapper">
+        <owl-carousel-o [options]="customOptions">
+            <ng-container *ngFor="let slide of baseURL; let i = index">
+                <ng-template class="slide" carouselSlide [id]="slide.id">
+                    <img [src]="slide.baseUrl + currentWH" [alt]="slide.filename" [title]="slide.filename">
+                    <div class="centered" style="position: absolute; top: 50%; right: 50%; ">
+                        <div class="slide-text">
+                            <span>{{i}}.</span>
+                            <h2>Believe you can flyyyyyyyy</h2>
+                        </div>
                     </div>
-                </div>
-            </ng-template>
-        </ng-container>
-
-    </owl-carousel-o>
-</div>
-<!-- <h2 class="tww" #tww></h2> -->
-
-<div class="">
-    <owl-carousel-o [options]="customOptions2">
-
-        <ng-container *ngFor="let slide of baseURL">
-            <ng-template class="slide" carouselSlide [id]="slide.id">
-                <img [src]="slide.url" [alt]="slide.filename" [title]="slide.filename" style="filter: blur(1px)">
-            </ng-template>
-        </ng-container>
-
-    </owl-carousel-o>
-</div>
-
-<!-- <ol class="carousel-indicators">
+                </ng-template>
+            </ng-container>
     
-        <li *ngFor="let item of baseURL; let i = index" (click)="activateClass(i)"
-            [ngClass]="{'active': selectedIndex === i}" data-target="#welcomeSlider" data-slide-to={{i}}
-            class="bg-img" style="background-image: url({{item.baseUrl}});"></li>
-    </ol> -->
+        </owl-carousel-o>
+    </div>
+    <!-- <h2 class="tww" #tww></h2> -->
+    
+    <div class="">
+        <owl-carousel-o [options]="customOptions2">
+    
+            <ng-container *ngFor="let slide of baseURL">
+                <ng-template class="slide" carouselSlide [id]="slide.id">
+                    <img [src]="slide.url" [alt]="slide.filename" [title]="slide.filename" style="filter: blur(1px)">
+                </ng-template>
+            </ng-container>
+    
+        </owl-carousel-o>
+    </div>
+    <div class="video" style="margin-left: 5%; margin-right:5%;">
+        <hr style="margin-top: 2rem;">
+        <div class="v-title"[ngClass]="{'v-title-dark': isSwitcher === true}">
+            VIDEO
+        </div>
+        <div class="video-list">
+            <div class="row">
+                <div class="col-lg-3 video-item">
+                    <div class="v-img">
+                        <a href="https://www.youtube.com/playlist?list=PL4ZqXw97YacW0LKXq3DcTZr43T4WZI2if" target="_blank">
+                            <img style="border-radius: 5px" src="https://lh3.googleusercontent.com/lr/AFBm1_bh-v37C_g_saCqtJ6trn8KjPBjqydVZB-bsY-USnzGG1yodBqacQx7ecPCBl6L3h0MSxwRcfm59iLYjr6ZvOzLR3TPqoRqt6ScpvJb8Cf25L8EgDsqBno-wMaaOVpdsbUIYxQJ_n6tXDizQNs-34GaOU5w4IJHWxx7X5z7NEok_MW16-5rz2ovvxZDFCuzcEpaY7VOVGfEhLhL3o5zqzCxjH7b06VH5U0t-oqJ6IYdPsZFlFbwAR1cMau5Xi9RzBxIGkpiTNm3tY50Y54aw6v46mXpS8UewRGUzOHDwRhLilnSKpA-OGwnK2PeNdkD9iJ_rQMsIR0hulw59BPEZdBffaVP6JapX5-Fm7XBVD-UnQdPwAcCsISecaDlhmq3waLqDpw1BE1FYalK8yBbTFSUZYwn0s7rpdWA4JWRMz97oLS4Hx4g57aY13EDnayiDwnxUerBkX2vXimAOGapJBjnwfBjUmv94rfFhqaz2v28HoDOWvdQAgLRbS1HISbDl9gydpSLHw6v_8JMYfPWHNaCDvUIpLkc-EoOTSHTHkGVnStkf7YK5d7qTFyv0WkdErnl91TFP2OIsG-fX6PrDwbHQZCE1RYOv7DKa8FKTH8NNyTLI_N2OWhRVs4SlWw0M0C2o9Fvt34du6I4JnBRH51QW_GTTPX0yRx7SirgJEQac07XwJDao3xjpFYyt78WcpS8jUmVG6Lpiqz8DHvcqDm8hzYS-E155-eMIvOf7129LmveUQ7Ptks5mWMqH8Xxh2AYzXI-PSC9TECjiEmkO9A-rF1-g5PocUDJDRJQ6NyoCC7ZC7IRKcs" alt="">
+                        </a>
+                        <div class="v-desc">
+                            1.2020
+                        </div>
+                    </div>              
+                </div>
+                <div class="col-lg-3 video-item">
+                    <div class="v-img">
+                        <img  style="border-radius: 5px" src="https://lh3.googleusercontent.com/lr/AFBm1_aNVC0JY4NXscY3BtFjoPR3DvCTh2X8SmXP_81IbAfrEYFS3LbtyK8JzTotDLfCKe-fM304uVYvKpqYnQYogbTEwwWicl4rBynYBE89s4KVWap13UL3h3wkVznkJU0R2dcxuiccEwZ741-bLsE4XBuam4JHg0DePZfyJvmaQGussPFT-1IExFxLG8_0x4VoUV5PVxVis2Uqg5CI-QvVHQXgF0HFWgcbVTr17lWMhHtem4NxASXtOREOcL3H1djqnGVVfPvdFz6jthNvDDALO3iDKUHM1zmNem0yKMACnxDSpo3gq_W4quTesWYOrBz4C-NlRk8kGcjkmiXOkjvIs0ywB1IClUhwxN43fA2P4Jhu32OxQ2NTr3Wq_Ngqlx1kHuDmUzDCkAsJAfiEZYJVUGdE5uGrv1csyHYPGVnaZG6rKTXQGB6rJvlRSH-j-wVx-x2S5BrhiJ2ndmz5tF8XiR3lJxR64QwJYyvNyWlp4n86Ir8E3CWTraTyV6zMUwxQ1cC21GHA_SQnEfjxWplDaI02K1jZ5F4bfaNOzvTy4Q6z-vpR1-Gr7HKXnKQ1mwPbRc3qgOuHz7nUDYjMrF2JPyHJLmIQMPmhRjJOH5GCmaV_vmPF2PVRjGbCl6tRZj5HLuMn1VWZPkAIKhQQVrB4xYMjevHkk4Lr5OfoU-8LQ6j2cAwMSfyYvwmFii_HT3k2J2NfJWEKJRdh82PhxuBfHLh26HoQb2Ov5fLL02E8tmM1OafKz60dP-IzHBsXuX3JcsmNYKJog9oF_mham2ub1zymTTJ805v0b6IzGdYOSckmTOOeJWKhgiQ" alt="">
+                        <div class="v-desc">
+                            1.2020
+                        </div>
+                    </div>    
+                </div>
+                <div class="col-lg-3 video-item">
+                    <div class="v-img">
+                        <img  style="border-radius: 5px "src="https://lh3.googleusercontent.com/lr/AFBm1_Y4FhBG_B-7izflUOgr5_0Fn3tuxzlMRqtApOvURLInQ3ZaIqd7uJF_4lupHwCBW3xBfNm0masIppfNdxdVUZZe0HpSqEeIi8GCFBVy6kXI-LVybj78o3eMZQwxzuLL1UyF-LeNb_-Av84t9Cc_dV7-2fJLQR7pqnbP9tL_uY1UJDShJUpceJRY9Q680jpvNvmq5MrAHb7aTDxujGaCqGvgZE4fftpHmdhyL1QgDxUCB8nuWvl2_r5ScEivLJxVEl-U7gU5SVfn1YBUVq6q_8uI0JqxUF_gq2vIfSNRK4lU-4x5DqyEWAdur0Nrv55fihuuUdLkSKhs8ZNfFHeBtSsuGSB1JbEVmrmyKj5-26QK5uwg2fBNSZ8d1tv4mMwVTFZ1iaixQHmuE2p1p8JdB_ZmRh6os8etz13ezIKqLp1dumffSiO__JqNjQSitpdkFpAAlcbHQzUORMzlBECSgc2g-u0RUt5BAvM1lX0AIj56su7v6WK5K49Wu-NA2BXewB8zm3u7p6Hr3bJ6uD4KQzupSgDuda1-LwkUCWxSfrprwIadV12Xc57AHVQK6dauxmxG3YdTNDUrMLCjHuaJF2acMBhh8Jaf7IsL8RyamOq6CzAiyiBt_tI_EBZb373JhjQLfdutt8CDjuvGELP-iHhtVFJYcht-_64VAxmO0zN1_qR1eRqkkGN1WaD1H3kGX1p90RcYxYt-JR1u9azAsMDCpSgxPlOyfVAynOCsId-WTezyT8Xh6y0FCAhnsrZTi5PWPnoTCf63TRmkVjwAV7pZxK0DV5C_kkFIuH-tir7ArqxvbC2NHsg" alt="">
+                        <div class="v-desc">
+                            1.2020
+                        </div>
+                    </div> 
+                </div>
+                <div class="col-lg-3 video-item">
+                    <div class="v-img">
+                        <img  style="border-radius: 5px "src="https://lh3.googleusercontent.com/lr/AFBm1_atHfzyIYbo9pBOXkmW1Jbbse2MJh1FVGqK8b5LG7xFJ6BcYgGQox3beplbdlHM8QewhulKzzVfGJbT_Y6Zz7fbBsmOoei6nFGGRVKso3fmbKNKkchpGt3bxrNawFXCIcvCSSNKt8JTTYMuQ3A-jLdctSyvp35Y22CGdBkYYXS58SGsTYX0Al9qwYQ528ZAz9UelBKqQcM36Bq_j2Iphc1ZysSbIt8wEh-82VycgSplM8KOK1QFBpm6iZePf-Tgo3Hhm3hJbYr-zU40QFKHw1Cm7syhXwQBxhdCozmVFj2XKb7NZHrxHMHYN1la3G0CEh-Er7k-5_8KD8CTJK5kAvWNZ3P65cJkTF0jlE8Sm8ZMNRnuwm_ZK_Exue37sOoLwNVjA4fT9pk-M9m25SobWAYSiQaS4XcvIO44tnkjrnrGxMxVfm6dtn1bcMbnzFEJrGhaLTgjVtm-IPWuQUDeINBYIyvPoIbfjGNDFXGaKkMKzellfseMDUftqG1yM5FcOyyn4aDyflu_IHPhuBJwwfsY_QFryRMOc3rBf_nCV66j3Nn4lBc4kkOBvnBR5-aa7ookcMlvsZV869-PxzZMVOdim_Z2p33RI26FJHNqchzDfzixmDcueQRhSYSeGJY_fh5An8YX_jtW0H8xWtAgupl7SB3Pnwlvxc0lFFiPqSYExMjalw3yL9orLUwWBr9IaFMWiq4oKjbHMswpz0gz-9zXVOSCC6_0ytXAcnADcgLlGFQlfrRHh49DefSApWBi50YUMiaeJ_iL6Dfgva-7rXSzQpvpSHa5rGNV7xJYeNJb8fmakMQcXPU" alt="">
+                        <div class="v-desc">
+                            1.2020
+                        </div>
+                    </div> 
+                </div>
+                <div class="col-lg-3 video-item">
+                    <div class="v-img">
+                        <img src="https://www.youtube.com/embed?listType=playlist&list=PLC77007E23FF423C6" alt="">
+                        <!-- <img  style="border-radius: 5px "src="https://lh3.googleusercontent.com/lr/AFBm1_Yn6LzXtCKNE0VkCYHsI0ImXb3qUhRHYOyGp7QcV14tU_5FndXLqQIg7bPtPq0KUN0bbV4W-F3pSr5uigd9U6Qd7CN3pLDI3pKqf_UQqV-cmuxzE9A8lMxkyiy1S8VqiIbwv7KAQG0sEt_5iXSyRou4lA0-2URp8IWhGwAvaEKEKR-8wcVG6qrYs2n-Zpo2UTMZZhslYD8SpHtt4nYkXnRes282OsUxc6xClXBnSLfHXuoEiqgoOyIiurnwIaTi3LH8UNQiFI6xwJuuKzV8mkQfV4dximpMpZ_StECD1oxPa4kzu2e7IgT1_buS-NReUQsHc_CvSocyvTwrA65ZShnWtecuTDfUyofOb2G0V0-bhgzW-lbjpArXqP0WRkEASf_oBOfoAx_UTGV94KZ2rMpV-lnA20Jb9PIzm0ZoN4FrykzXf9UVr8ZXqjKtYz-V9kM-49YN1GmzMzLhQT8bt5i8FmleCnThBsWB8SN0iESCq8fcv_akT6mEoP9b9mjAYglNVwa8kQo_Gg1Rs4Oyfs_Vzl4qOYxskoK3IooW07PBG_RtHAJVcBDVKZkmYg0cFeadHaeuuObAlksYDAclXqu5EAwy5Ui-lVCvMAiiX106mopEOdacdd96k6vGNzBWR69vo8XkWNTRPH9sLKFKZZBYXALttkixs5Id4s0g2k8pCK_pGM2UI6CDfquB0Hpj3rewAc66Z6lwTJC-HFnjazJaRPTiBT8i4T69IvzP_qfDqBe-bB6QzPV5FLYD0eyVrAXhnSOBTIV62JypPI-WVIAht_QN_UrcgnvF1eClC9seAL6cIJO0zA0" alt=""> -->
+                        <div class="v-desc">
+                            1.2020
+                        </div>
+                    </div> 
+                </div>
+            </div>
+        </div>
+    </div>
+    <button (click)="switcher()">Switcher</button>
+</div>

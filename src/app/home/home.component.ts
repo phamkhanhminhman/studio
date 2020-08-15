@@ -3,7 +3,7 @@ import { HttpService } from 'src/services/http.service'
 import { UserService } from 'src/services/user.service';
 import { Router, ActivatedRoute } from '@angular/router';
 import { OwlOptions } from 'ngx-owl-carousel-o';
-import Typewriter from 't-writer.js';
+import { ButtonsModule } from 'ngx-bootstrap/buttons';
 
 @Component({
   selector: 'app-home',
@@ -72,6 +72,7 @@ export class HomeComponent implements OnInit {
   public currentWidth;
   public currentHeight;
   public currentWH;
+  public isSwitcher = false;
 
   constructor(
     private _httpService: HttpService,
@@ -88,29 +89,13 @@ export class HomeComponent implements OnInit {
     this.currentWidth =  window.innerWidth;
     this.currentHeight = window.innerHeight;
     if (this.currentWidth > 1000) {
-      this.currentHeight = 600;
+      this.currentHeight = 620;
     } 
     this.currentWH = '=w' + this.currentWidth + '-h' + this.currentHeight + '-c'
     console.log(this.currentWH);
     
-    this._activatedRoute.queryParams.subscribe(params => {
-      let codeResponseGoogle = params['code'];
-      console.log(codeResponseGoogle); // Print the parameter to the console.   
-      this.data.code = codeResponseGoogle;
-      let url = 'http://localhost:8000/google' + '?code=' + codeResponseGoogle;
-      console.log(url);
-      if (codeResponseGoogle && !sessionStorage.getItem('setOAuth')) {
-        sessionStorage.setItem('setOAuth', '1');
-        this._httpService.getHttp(url, false).subscribe(
-          res => {
-            console.log(res);
-
-          },
-          error => {
-            console.log(error);
-          });
-      }
-      this._httpService.getHttp('http://localhost:8000/photo').subscribe(
+    
+    this._httpService.getHttp('http://localhost:8000/photo').subscribe(
         res => {
           console.log(res);
           this.baseURL = res.data;
@@ -118,15 +103,16 @@ export class HomeComponent implements OnInit {
           console.log(this.baseURL);
         }
       )
-    });
   }
 
   activateClass(index) {
     this.selectedIndex = index;
   }
 
-  myFunc(){
-    console.log("function called");
+  switcher(){
+    
+    this.isSwitcher = !this.isSwitcher;
+    console.log("function called " + this.isSwitcher);
     // const target = this.typewriterElement.nativeElement
 
     // const writer = new Typewriter(target, {
