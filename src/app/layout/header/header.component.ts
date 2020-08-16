@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { UserService } from 'src/services/user.service';
 
 @Component({
   selector: 'app-header',
@@ -7,9 +8,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HeaderComponent implements OnInit {
 
-  constructor() { }
+  public isSwitchDark = false;
+
+  constructor(
+    private _userService: UserService,
+  ) { }
 
   ngOnInit(): void {
   }
 
+  switcherDarkTheme() {
+    this.isSwitchDark = !this.isSwitchDark;
+    this._userService.applyTheme(this.isSwitchDark.toString())
+  }
 }

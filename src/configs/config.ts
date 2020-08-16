@@ -5,4 +5,11 @@ export const SERVER = environment.serverUrl;
 export const SERVICE_CONFIG = {
 
     LOGIN: SERVER + 'api/auth/login',
+
+    AUTH_GOOGLE: SERVER + 'auth-google',
+
+    MEDIA_ITEMS: SERVER + 'photo',
+
+    GOOGLE: SERVER + 'google',
+
   };

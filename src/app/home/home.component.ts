@@ -3,6 +3,7 @@ import { HttpService } from 'src/services/http.service'
 import { UserService } from 'src/services/user.service';
 import { Router, ActivatedRoute } from '@angular/router';
 import { OwlOptions } from 'ngx-owl-carousel-o';
+import { SERVICE_CONFIG } from 'src/configs'
 import { ButtonsModule } from 'ngx-bootstrap/buttons';
 
 @Component({
@@ -12,7 +13,7 @@ import { ButtonsModule } from 'ngx-bootstrap/buttons';
 })
 export class HomeComponent implements OnInit {
 
-  @ViewChild('tww' , { static: true }) typewriterElement;
+  @ViewChild('tww', { static: true }) typewriterElement;
 
   customOptions: OwlOptions = {
     loop: true,
@@ -66,13 +67,13 @@ export class HomeComponent implements OnInit {
     code: null,
     access_token: null
   };
-  
+
   public baseURL;
-  public selectedIndex;
   public currentWidth;
   public currentHeight;
-  public currentWH;
-  public isSwitcher = false;
+  public paramBaseURL;
+  public paramURL;
+  public isDarkTheme;
 
   constructor(
     private _httpService: HttpService,
@@ -81,49 +82,26 @@ export class HomeComponent implements OnInit {
     private _activatedRoute: ActivatedRoute) { }
 
   ngOnInit(): void {
-    console.log('current width');
-    console.log(window.innerWidth );
-    console.log('current height');
-    console.log(window.innerHeight );
+    this.isDarkTheme = this._userService.setTheme.subscribe((data) => this.isDarkTheme = data);
 
-    this.currentWidth =  window.innerWidth;
+    if (localStorage.getItem('theme')) {
+      this.isDarkTheme = localStorage.getItem('theme')
+    }
+    
+    this.currentWidth = window.innerWidth;
     this.currentHeight = window.innerHeight;
     if (this.currentWidth > 1000) {
       this.currentHeight = 620;
-    } 
-    this.currentWH = '=w' + this.currentWidth + '-h' + this.currentHeight + '-c'
-    console.log(this.currentWH);
-    
-    
-    this._httpService.getHttp('http://localhost:8000/photo').subscribe(
-        res => {
-          console.log(res);
-          this.baseURL = res.data;
-          console.log('baseurl');
-          console.log(this.baseURL);
-        }
-      )
+    }
+    this.paramBaseURL = '=w' + this.currentWidth + '-h' + this.currentHeight + '-c';
+    this.paramURL = '=w144-h96-c;'
+
+    //CALL API LIST MEDIA ITEMS
+    this._httpService.getHttp(SERVICE_CONFIG.MEDIA_ITEMS).subscribe(
+      res => {
+        console.log(res);
+        this.baseURL = res.data;
+      }
+    )
   }
-
-  activateClass(index) {
-    this.selectedIndex = index;
-  }
-
-  switcher(){
-    
-    this.isSwitcher = !this.isSwitcher;
-    console.log("function called " + this.isSwitcher);
-    // const target = this.typewriterElement.nativeElement
-
-    // const writer = new Typewriter(target, {
-    //   loop: true,
-    //   typeColor: 'Black'
-    // })
-
-    // writer
-    //   .type('Believe you can fly')
-    //   .rest(500)
-    //   .start()
-  }
-  
 }

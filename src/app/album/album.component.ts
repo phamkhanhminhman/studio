@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { HttpService } from 'src/services/http.service'
 import { UserService } from 'src/services/user.service';
 import { Router } from '@angular/router';
+import { SERVICE_CONFIG } from 'src/configs'
 
 @Component({
   selector: 'app-album',
@@ -18,7 +19,7 @@ export class AlbumComponent implements OnInit {
 
   ngOnInit(): void {
     if (!sessionStorage.getItem('setOAuth')) {
-      this._httpService.getHttp('http://localhost:8000/auth-google', false)
+      this._httpService.getHttp(SERVICE_CONFIG.AUTH_GOOGLE, false)
         .subscribe(
           res => {
             console.log("https://" + res.data.host);
@@ -26,11 +27,9 @@ export class AlbumComponent implements OnInit {
           },
           error => {
             console.log(error);
-
           });
     } else {
       console.log('album');
-      
     }
   }
 }
