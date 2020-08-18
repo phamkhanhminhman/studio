@@ -12,4 +12,6 @@ export const SERVICE_CONFIG = {
 
     GOOGLE: SERVER + 'google',
 
+    PLAYLIST: SERVER + 'api/playlist-youtube'
+
   };

@@ -1,9 +1,15 @@
+.video {
+    margin-left: 5%;
+    margin-right: 5%;
+}
+
 .video-item {
     margin-top: 10px;
 }
 
 .dark {
-    background-color: #242424;
+    /* background-color: #242424; */
+    background: linear-gradient(135deg,#15d163, #17bd93);
 }
 
 .v-title {

@@ -74,6 +74,7 @@ export class HomeComponent implements OnInit {
   public paramBaseURL;
   public paramURL;
   public isDarkTheme;
+  public playlist;
 
   constructor(
     private _httpService: HttpService,
@@ -101,6 +102,17 @@ export class HomeComponent implements OnInit {
       res => {
         console.log(res);
         this.baseURL = res.data;
+      }
+    )
+    //CALL API LIST PLAYLIST YOUTUBE
+    this._httpService.getHttp(SERVICE_CONFIG.PLAYLIST).subscribe(
+      res => {
+        this.playlist = res.data;
+        this.playlist.forEach(element => {
+          element.thumbnails = 'http://localhost:8000/' + element.thumbnails 
+        });
+        console.log(this.playlist);
+        
       }
     )
   }
