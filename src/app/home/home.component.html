@@ -37,7 +37,7 @@
                     <div class="v-img">
                         <a [href]="video.link"
                             target="_blank">
-                            <img class="img-thumbnail" style="border-radius: 3px" [src]="video.thumbnails" >
+                            <img class="img-fluid" (mouseenter)="onMouseEnter($event)" style="border-radius: 3px" [src]="video.thumbnails" >
                         </a>
                         <div class="v-desc">
                             {{video.title}}

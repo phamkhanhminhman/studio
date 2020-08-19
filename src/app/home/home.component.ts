@@ -3,7 +3,7 @@ import { HttpService } from 'src/services/http.service'
 import { UserService } from 'src/services/user.service';
 import { Router, ActivatedRoute } from '@angular/router';
 import { OwlOptions } from 'ngx-owl-carousel-o';
-import { SERVICE_CONFIG } from 'src/configs'
+import { SERVICE_CONFIG, SERVER } from 'src/configs'
 import { ButtonsModule } from 'ngx-bootstrap/buttons';
 
 @Component({
@@ -83,6 +83,7 @@ export class HomeComponent implements OnInit {
     private _activatedRoute: ActivatedRoute) { }
 
   ngOnInit(): void {
+    this._userService.applyCover(0);
     this.isDarkTheme = this._userService.setTheme.subscribe((data) => this.isDarkTheme = data);
 
     if (localStorage.getItem('theme')) {
@@ -109,11 +110,17 @@ export class HomeComponent implements OnInit {
       res => {
         this.playlist = res.data;
         this.playlist.forEach(element => {
-          element.thumbnails = 'http://localhost:8000/' + element.thumbnails 
+          element.thumbnails = SERVER + element.thumbnails 
         });
         console.log(this.playlist);
         
       }
     )
   }
+
+  onMouseEnter(e) {
+    console.log(e);
+  }
+  
+  
 }

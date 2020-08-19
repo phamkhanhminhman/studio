@@ -10,7 +10,7 @@ export const SERVICE_CONFIG = {
 
     MEDIA_ITEMS: SERVER + 'photo',
 
-    GOOGLE: SERVER + 'google',
+    CALLBACK: SERVER + 'callback',
 
     PLAYLIST: SERVER + 'api/playlist-youtube'
 

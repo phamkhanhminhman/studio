@@ -1,0 +1,25 @@
+<div class="album_area">
+    <div class="gallery_menu">
+        <div class="portfolio-menu">
+            <a class="active btn" type="button" data-filter="*">All</a>
+            <a class="btn" type="button">2020</a>
+            <a class="btn" type="button">2019</a>
+            <a class="btn" type="button">2018</a>
+            <a class="btn" type="button">2017</a>
+            <a class="btn" type="button">2016</a>
+            <a class="btn" type="button">2015</a>
+            <a class="btn" type="button">2014</a>
+        </div>
+    </div>
+    <div class="row portfolio-column">
+        <!-- Single Item -->
+        <div class="col-12 col-sm-6 col-md-4 col-lg-3 column_single_gallery_item weddings" *ngFor="let item of playlist">
+            <img [src] ="item.thumbnails" alt="">
+            <div class="hover_overlay">
+                <a class="gallery_img" href="img/bg-img/1.jpg"><p class="title">{{item.title}}</p></a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Project Area End -->

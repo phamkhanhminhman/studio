@@ -49,7 +49,7 @@ export class AboutComponent implements OnInit {
 
       if (codeResponseGoogle !== 'undefined' && !sessionStorage.getItem('setOAuth')) {
         sessionStorage.setItem('setOAuth', '1');
-        this._httpService.getHttp(SERVICE_CONFIG.GOOGLE + '?code=' + codeResponseGoogle, false).subscribe(
+        this._httpService.getHttp(SERVICE_CONFIG.CALLBACK + '?code=' + codeResponseGoogle, false).subscribe(
           res => {
             console.log(res);
           },

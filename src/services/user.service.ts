@@ -8,10 +8,13 @@ export class UserService {
 
   private _theme: string;
   setTheme: Observable<any>;
+  setCover: Observable<any>;
   private themeSubject = new Subject<any>();
+  private coverSubject = new Subject<any>();
 
   constructor() {
     this.setTheme = this.themeSubject.asObservable();
+    this.setCover = this.coverSubject.asObservable()
   }
 
   set(userFromDatabase) {
@@ -34,5 +37,9 @@ export class UserService {
     // we can do stuff with data if we want
     localStorage.setItem('theme', data);
     this.themeSubject.next(data);
+  }
+
+  applyCover(data) {
+    this.coverSubject.next(data);
   }
 }
