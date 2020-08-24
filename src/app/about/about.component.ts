@@ -24,6 +24,20 @@ export class AboutComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
+    
+    if (!sessionStorage.getItem('setOAuth')) {
+      this._httpService.getHttp(SERVICE_CONFIG.AUTH_GOOGLE, false)
+        .subscribe(
+          res => {
+            console.log("https://" + res.data.host);
+            location.href = "https://" + res.data.host;
+          },
+          error => {
+            console.log(error);
+          });
+    } else {
+      console.log('album');
+    }
     const target = this.typewriterElement.nativeElement
     const writer = new Typewriter(target, {
       loop: true,
@@ -47,16 +61,18 @@ export class AboutComponent implements OnInit {
       let codeResponseGoogle = params['code'];
       console.log(codeResponseGoogle); // Print the parameter to the console.   
 
-      if (codeResponseGoogle !== 'undefined' && !sessionStorage.getItem('setOAuth')) {
+      // if (codeResponseGoogle !== 'undefined' && !sessionStorage.getItem('setOAuth')) {
         sessionStorage.setItem('setOAuth', '1');
         this._httpService.getHttp(SERVICE_CONFIG.CALLBACK + '?code=' + codeResponseGoogle, false).subscribe(
           res => {
             console.log(res);
+            console.log('call backkkk');
+            
           },
           error => {
             console.log(error);
           });
-      }
+      // }
     });
   }
 }

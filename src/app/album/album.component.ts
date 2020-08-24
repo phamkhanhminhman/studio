@@ -18,18 +18,6 @@ export class AlbumComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    if (!sessionStorage.getItem('setOAuth')) {
-      this._httpService.getHttp(SERVICE_CONFIG.AUTH_GOOGLE, false)
-        .subscribe(
-          res => {
-            console.log("https://" + res.data.host);
-            location.href = "https://" + res.data.host;
-          },
-          error => {
-            console.log(error);
-          });
-    } else {
-      console.log('album');
-    }
+    
   }
 }
