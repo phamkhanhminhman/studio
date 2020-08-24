@@ -61,7 +61,7 @@ export class AboutComponent implements OnInit {
       let codeResponseGoogle = params['code'];
       console.log(codeResponseGoogle); // Print the parameter to the console.   
 
-      // if (codeResponseGoogle !== 'undefined' && !sessionStorage.getItem('setOAuth')) {
+      if (codeResponseGoogle !== 'undefined' && !sessionStorage.getItem('setOAuth')) {
         sessionStorage.setItem('setOAuth', '1');
         this._httpService.getHttp(SERVICE_CONFIG.CALLBACK + '?code=' + codeResponseGoogle, false).subscribe(
           res => {
@@ -72,7 +72,7 @@ export class AboutComponent implements OnInit {
           error => {
             console.log(error);
           });
-      // }
+      }
     });
   }
 }
