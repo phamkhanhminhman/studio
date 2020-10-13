@@ -483,7 +483,7 @@ img {
     font-size: 15px;
     text-transform: uppercase;
     color: #ffffff;
-    color: black;
+    /* color: black; */
     padding: 0 20px;
     font-weight: 400;
 }
@@ -873,7 +873,7 @@ img {
     position: absolute;
     width: calc(100% - 30px);
     height: 100%;
-    background-color: rgba(0, 0, 0, 0.6);
+    background-color: rgba(0, 0, 0, 0.4);
     top: 0;
     left: 15px;
     display: -webkit-box;

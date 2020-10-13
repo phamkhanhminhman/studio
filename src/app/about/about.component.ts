@@ -24,8 +24,8 @@ export class AboutComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    
-    if (!sessionStorage.getItem('setOAuth')) {
+    //Check login authen google
+    if (!localStorage.getItem('setOAuth')) {
       this._httpService.getHttp(SERVICE_CONFIG.AUTH_GOOGLE, false)
         .subscribe(
           res => {
@@ -61,8 +61,8 @@ export class AboutComponent implements OnInit {
       let codeResponseGoogle = params['code'];
       console.log(codeResponseGoogle); // Print the parameter to the console.   
 
-      if (codeResponseGoogle !== 'undefined' && !sessionStorage.getItem('setOAuth')) {
-        sessionStorage.setItem('setOAuth', '1');
+      if (codeResponseGoogle !== 'undefined') {
+        localStorage.setItem('setOAuth', '1');
         this._httpService.getHttp(SERVICE_CONFIG.CALLBACK + '?code=' + codeResponseGoogle, false).subscribe(
           res => {
             console.log(res);

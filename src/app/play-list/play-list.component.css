@@ -9,3 +9,13 @@
     font-size: 15px; 
     font-weight: 500;
 }
+
+.column_single_gallery_item {
+    /* margin-bottom: 14px; */
+    margin: -5px -21px 19px 0px;
+    transition: transform .3s;
+}
+
+.column_single_gallery_item:hover {
+    transform: scale(1.02); 
+  }
